@@ -142,6 +142,6 @@ This project is open-sourced software licensed under the [MIT license](https://o
 
 ## 📞 Contact
 
-Roshan Eranga - [Your Email Address] - [Your LinkedIn Profile URL (Optional)]
+Roshan Eranga - roshaneranga@gmail.com - https://www.linkedin.com/in/roshaneranga
 
 Project Link: [https://github.com/roshaneranga/FuelManagementSystem](https://github.com/roshaneranga/FuelManagementSystem)
