@@ -1,61 +1,147 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Fuel Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A comprehensive web application built with Laravel for managing vehicle and fuel entry data. This system allows for tracking fuel consumption, costs, and vehicle details, with plans for advanced reporting and data visualization.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Current Core Features:
+* **Vehicle Management:**
+    * Add new vehicles (name, type, fuel type).
+    * View details of individual vehicles.
+    * Edit existing vehicle information.
+    * Delete vehicles.
+    * List all vehicles.
+* **Fuel Entry Management:**
+    * Add new fuel entries, linking them to specific vehicles.
+    * Automatically calculates Fuel Amount (Liters) based on Total Cost and Fuel Price per Liter.
+    * View all fuel entries.
+    * View details of individual fuel entries.
+    * Edit existing fuel entries.
+    * Delete fuel entries.
+* **Relationships:** Vehicles can have multiple associated fuel entries.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Planned Enhancements (Future Development - TALL Stack):
+* **Modern Frontend:** Integration with Tailwind CSS, Alpine.js, and Livewire for a dynamic and elegant user interface.
+* **Advanced Reporting:** Comprehensive data visualization (charts) for fuel consumption trends, cost analysis, etc.
+* **PDF Reporting:** Generate printable PDF reports of fuel data.
+* **Excel/CSV Export:** Export fuel entry data for further analysis.
+* **Dashboard:** An intuitive dashboard summarizing key metrics.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Technologies Used
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* **Backend Framework:** Laravel 12.x (PHP 8.4.x)
+* **Database:** MySQL
+* **Frontend (Current):** Blade Templates, Bootstrap 5, Vanilla JavaScript
+* **Frontend (Planned):** Tailwind CSS, Alpine.js, Livewire
+* **Version Control:** Git & GitHub
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## ⚡ Getting Started
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Follow these steps to set up the project locally on your machine.
 
-### Premium Partners
+### Prerequisites
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+* **XAMPP** (or equivalent like Laragon, WAMP, Docker with PHP/MySQL)
+    * PHP 8.4.x
+    * MySQL Database
+* **Composer** (PHP dependency manager)
+* **Node.js & npm** (for frontend asset compilation, primarily for planned Tailwind/Livewire)
+* **Git**
 
-## Contributing
+### Installation Steps
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/roshaneranga/FuelManagementSystem.git](https://github.com/roshaneranga/FuelManagementSystem.git)
+    cd FuelManagementSystem
+    ```
 
-## Code of Conduct
+2.  **Install PHP Dependencies:**
+    ```bash
+    composer install
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3.  **Set up Environment File:**
+    ```bash
+    cp .env.example .env
+    ```
 
-## Security Vulnerabilities
+4.  **Generate Application Key:**
+    ```bash
+    php artisan key:generate
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5.  **Configure Database:**
+    Open the newly created `.env` file and update your database credentials:
+    ```dotenv
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=fuel_management_db # You can choose any name
+    DB_USERNAME=root               # Your MySQL username (e.g., root for XAMPP)
+    DB_PASSWORD=                   # Your MySQL password (empty for XAMPP root by default)
+    ```
+    Make sure to create the `fuel_management_db` database in your MySQL (e.g., via phpMyAdmin) before running migrations.
 
-## License
+6.  **Run Database Migrations:**
+    This will create the necessary tables in your database.
+    ```bash
+    php artisan migrate
+    ```
+    *If you encounter issues and want to reset your database, use `php artisan migrate:fresh` (this will delete all data).*
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+7.  **Seed Database (Optional):**
+    If you have seeders (e.g., for test data), you can run them:
+    ```bash
+    php artisan db:seed
+    ```
+
+8.  **Install Node.js Dependencies:**
+    ```bash
+    npm install
+    ```
+
+9.  **Compile Frontend Assets:**
+    ```bash
+    npm run dev # For development
+    # or npm run build # For production
+    ```
+
+10. **Start the Laravel Development Server:**
+    ```bash
+    php artisan serve
+    ```
+
+    The application will typically be available at `http://127.0.0.1:8000`.
+
+---
+
+## 🤝 Contribution
+
+Contributions are welcome! If you have suggestions or want to contribute, please feel free to:
+
+1.  Fork the repository.
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
+
+---
+
+## 📄 License
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+---
+
+## 📞 Contact
+
+Roshan Eranga - [Your Email Address] - [Your LinkedIn Profile URL (Optional)]
+
+Project Link: [https://github.com/roshaneranga/FuelManagementSystem](https://github.com/roshaneranga/FuelManagementSystem)
